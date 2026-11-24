@@ -1,0 +1,50 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: crm-toyota-postgres
+    environment:
+      POSTGRES_DB: crm_toyota
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - crm_toyota_pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d crm_toyota"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  ml-service:
+    build:
+      context: ./ml-service
+    container_name: crm-toyota-ml
+    environment:
+      PORT: 8000
+      ML_INTERNAL_API_KEY: crm-toyota-internal-ml-key-2026
+    ports:
+      - "8000:8000"
+
+  backend-crm:
+    build:
+      context: ./backend-crm
+    container_name: crm-toyota-backend
+    depends_on:
+      postgres:
+        condition: service_healthy
+      ml-service:
+        condition: service_started
+    environment:
+      PORT: 8080
+      DATABASE_URL: jdbc:postgresql://postgres:5432/crm_toyota
+      DATABASE_USERNAME: postgres
+      DATABASE_PASSWORD: postgres
+      ML_MODE: http
+      ML_SERVICE_URL: http://ml-service:8000
+      ML_INTERNAL_API_KEY: crm-toyota-internal-ml-key-2026
+    ports:
+      - "8080:8080"
+
+volumes:
+  crm_toyota_pgdata:
