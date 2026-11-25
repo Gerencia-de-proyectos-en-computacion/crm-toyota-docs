@@ -3,6 +3,7 @@
 Repositorio transversal del proyecto **CRM-TOYOTA** (Organización `Gerencia-de-proyectos-en-computacion`).
 
 ## Contenido Auditado (Docs-as-Code)
+- **[Guía Integral del Equipo y Defensa Oral (Empieza aquí — Jorge y Aaron)](./docs/TEAM_ONBOARDING_AND_DEFENSE_GUIDE.md)**
 - [Product Backlog Priorizado (MoSCoW) — Sprint 1 y Sprint 2](./docs/PRODUCT_BACKLOG_MOSCOW.md)
 - [Decisiones Arquitectónicas y Reglas de Negocio (ADR-001 a ADR-006)](./docs/BUSINESS_RULES_AND_ADRS.md)
 - [Matriz Viva de Trazabilidad PMBOK ↔ Código y Doble Presupuesto](./docs/PMBOK_CODE_TRACEABILITY.md)
