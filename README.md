@@ -10,6 +10,7 @@ Repositorio transversal del proyecto **CRM-TOYOTA** (Organización `Gerencia-de-
 - [Contrato Cerrado Backend ↔ Microservicio ML](./docs/ML_SERVICE_CONTRACT_DRAFT.md)
 - [Guía de Prueba Local End-to-End](./docs/LOCAL_DEMO_GUIDE.md)
 - [Guía de Despliegue Cloud Ruta B (`S/ 0.00`)](./docs/CLOUD_DEPLOYMENT_GUIDE.md)
+- **[Ficha de Entrevista en Talleres Toyota — Plantilla Imprimible (MD)](./docs/FICHA_ENTREVISTA_TALLERES.md) | [(PDF listo para imprimir)](./docs/FICHA_ENTREVISTA_TALLERES.pdf)**
 - [Colección Exportable Postman v2.1 (Auditoría QA Aaron)](./qa/postman/CRM-TOYOTA.postman_collection.json)
 - [Entorno Postman Producción (Render + Vercel)](./qa/postman/CRM-TOYOTA-Prod.postman_environment.json)
 
