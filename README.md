@@ -10,3 +10,9 @@ Repositorio transversal del proyecto **CRM-TOYOTA** (Organización `Gerencia-de-
 - [Guía de Prueba Local End-to-End](./docs/LOCAL_DEMO_GUIDE.md)
 - [Guía de Despliegue Cloud Ruta B (`S/ 0.00`)](./docs/CLOUD_DEPLOYMENT_GUIDE.md)
 - [Colección Exportable Postman v2.1 (Auditoría QA Aaron)](./qa/postman/CRM-TOYOTA.postman_collection.json)
+- [Entorno Postman Producción (Render + Vercel)](./qa/postman/CRM-TOYOTA-Prod.postman_environment.json)
+
+## URLs Activas en Producción (Piloto)
+- **Frontend Web (Vercel):** `https://crm-toyota-frontend.vercel.app`
+- **Backend API (Render + Supabase):** `https://crm-toyota-backend.onrender.com` (Swagger: `/swagger-ui.html`)
+- **Microservicio ML (Render FastAPI):** `https://crm-toyota-ml.onrender.com` (Health: `/health`, Metrics: `/metrics`)

@@ -4,12 +4,14 @@
 **Netlify** y **Vercel** son plataformas CDN + Serverless para Frontends y funciones efímeras Node/Go; **no alojan contenedores Docker persistentes de Java 21 (Spring Boot) ni procesos FastAPI con modelos `.joblib` cargados en memoria**.
 Por ello la topología productiva ideal y 100% gratuita es:
 
-| Capa | Servicio Cloud (`S/ 0.00`) | Estado Actual |
-| :--- | :--- | :--- |
-| **Base de Datos PostgreSQL 17** | **Supabase** (`cowbnhbvctewgznicrde` — `us-west-2`) | **YA APROVISIONADA Y CON SEED + RLS ACTIVO** |
-| **Frontend Web (`Vue 3`)** | **Vercel** (`crm-toyota-frontend`) | **DESPLEGADO POR CLI / CONECTADO A GITHUB** |
-| **Backend (`Spring Boot 3.4`)** | **Render.com Free Docker** *o* **Hugging Face Spaces (Docker SDK — 16 GB RAM gratis)** | **`Dockerfile` + `render.yaml` LISTOS EN GITHUB** |
-| **Microservicio ML (`FastAPI`)** | **Render.com Free Docker** *o* **Hugging Face Spaces (Docker SDK — 16 GB RAM gratis)** | **`Dockerfile` + `render.yaml` LISTOS EN GITHUB** |
+| Capa | Servicio Cloud (`S/ 0.00`) | URL / Identificador en Producción | Estado |
+| :--- | :--- | :--- | :--- |
+| **Base de Datos PostgreSQL 17** | **Supabase** (`us-west-2`, Session Pooler IPv4) | Proyecto `cowbnhbvctewgznicrde` | **ACTIVO (Seed + RLS)** |
+| **Frontend Web (`Vue 3`)** | **Vercel** (`crm-toyota-frontend`) | `https://crm-toyota-frontend.vercel.app` | **EN PRODUCCIÓN** |
+| **Backend (`Spring Boot 3.4`)** | **Render.com Free Docker** | `https://crm-toyota-backend.onrender.com` | **EN PRODUCCIÓN (`UP`)** |
+| **Microservicio ML (`FastAPI`)** | **Render.com Free Docker** | `https://crm-toyota-ml.onrender.com` | **EN PRODUCCIÓN (`v0.2.0`)** |
+
+> **Nota operativa Render Free Tier (Cold Start):** Tras 15 minutos sin tráfico, los contenedores gratuitos en Render entran en reposo y demoran ~30–50 segundos en despertar ante la primera petición. Antes de una entrevista con taller o defensa oral, abrir `https://crm-toyota-backend.onrender.com/actuator/health` y `https://crm-toyota-ml.onrender.com/health` 1 minuto antes.
 
 ---
 
